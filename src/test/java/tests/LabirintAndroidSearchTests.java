@@ -12,7 +12,7 @@ import static io.qameta.allure.Allure.step;
 
 public class LabirintAndroidSearchTests extends TestBase {
 
-    @DisplayName("ДОстали с отслеживанием локации")
+    @DisplayName("Отказ в отслеживании локации")
     @Tag("labirint")
     @Test
     void skippedTest() {

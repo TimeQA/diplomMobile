@@ -20,7 +20,6 @@ public class LabirintAndroidSearchTests extends TestBase{
         step("Пройти ознакомление", () -> {
             $(AppiumBy.id("ru.labirint.android.installed_feature_main:id/fragment_main_auth_skip")).click();
             $(AppiumBy.id("ru.labirint.android.installed_feature_main:id/fragment_main_auth_skip")).click();
-            $(AppiumBy.id("ru.labirint.android.installed_feature_main:id/fragment_main_auth_skip")).click();
         });
 
         //        После этого шага сделать проверку на наличие элементов на странице
@@ -37,7 +36,6 @@ public class LabirintAndroidSearchTests extends TestBase{
         });
 
         step("Пройти ознакомление", () -> {
-            $(AppiumBy.id("ru.labirint.android.installed_feature_main:id/fragment_main_auth_skip")).click();
             $(AppiumBy.id("ru.labirint.android.installed_feature_main:id/fragment_main_auth_skip")).click();
             $(AppiumBy.id("ru.labirint.android.installed_feature_main:id/fragment_main_auth_skip")).click();
         });
@@ -63,7 +61,6 @@ public class LabirintAndroidSearchTests extends TestBase{
         step("Пройти ознакомление", () -> {
             $(AppiumBy.id("ru.labirint.android.installed_feature_main:id/fragment_main_auth_skip")).click();
             $(AppiumBy.id("ru.labirint.android.installed_feature_main:id/fragment_main_auth_skip")).click();
-            $(AppiumBy.id("ru.labirint.android.installed_feature_main:id/fragment_main_auth_skip")).click();
         });
 
         step("Пропустить авторизацию", () -> {
@@ -83,7 +80,6 @@ public class LabirintAndroidSearchTests extends TestBase{
         });
 
         step("Пройти ознакомление", () -> {
-            $(AppiumBy.id("ru.labirint.android.installed_feature_main:id/fragment_main_auth_skip")).click();
             $(AppiumBy.id("ru.labirint.android.installed_feature_main:id/fragment_main_auth_skip")).click();
             $(AppiumBy.id("ru.labirint.android.installed_feature_main:id/fragment_main_auth_skip")).click();
         });

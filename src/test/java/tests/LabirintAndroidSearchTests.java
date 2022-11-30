@@ -20,7 +20,8 @@ public class LabirintAndroidSearchTests extends TestBase{
             $(AppiumBy.id("ru.labirint.android.installed_feature_main:id/fragment_main_auth_skip")).click();
 
 //            $(AppiumBy.accessibilityId("Поиск в Лабиринте")).click();
-            $(AppiumBy.id("ru.labirint.android:id/toolbar_search_et")).setValue("1984");
+            $(AppiumBy.id("ru.labirint.android:id/toolbar_search_et")).click();
+            $(AppiumBy.id("ru.labirint.android.otherfeatures:id/toolbar_search_et")).setValue("1984");
         });
 
         step("Verify content found", () -> {
@@ -30,5 +31,6 @@ public class LabirintAndroidSearchTests extends TestBase{
     }
 
 //    ru.labirint.android:id/toolbar_search_et
+//    ru.labirint.android.otherfeatures:id/toolbar_search_et
 
 }

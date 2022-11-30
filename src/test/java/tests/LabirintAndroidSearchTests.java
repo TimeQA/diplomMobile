@@ -1,6 +1,7 @@
 package tests;
 
 import io.appium.java_client.AppiumBy;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
@@ -9,7 +10,9 @@ import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
 import static io.qameta.allure.Allure.step;
 
-public class LabirintAndroidSearchTests extends TestBase{
+public class LabirintAndroidSearchTests extends TestBase {
+
+    @DisplayName("ДОстали с отслеживанием локации")
     @Tag("labirint")
     @Test
     void skippedTest() {
@@ -28,6 +31,7 @@ public class LabirintAndroidSearchTests extends TestBase{
         });
     }
 
+    @DisplayName("Проверка главной страницы")
     @Tag("labirint")
     @Test
     void mainPageTest() {
@@ -51,6 +55,7 @@ public class LabirintAndroidSearchTests extends TestBase{
         });
     }
 
+    @DisplayName("Проверка работы работы поля для введения запроса")
     @Tag("labirint")
     @Test
     void searchFieldTest() {
@@ -72,6 +77,7 @@ public class LabirintAndroidSearchTests extends TestBase{
         });
     }
 
+    @DisplayName("Проверка работы поиска по продуктам магазина")
     @Tag("labirint")
     @Test
     void searchResultTest() {

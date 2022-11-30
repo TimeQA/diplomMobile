@@ -87,4 +87,4 @@ ___
 
 
 
-<img title="Selenoid Video" src="images/allTests.mp4" width="650" height="350"  alt="video">   
+<img title="Selenoid Video" src="images/allTests.gif" width="650" height="350"  alt="video">   

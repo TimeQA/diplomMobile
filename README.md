@@ -83,3 +83,8 @@ ___
 <img title="Allure Graphics" src="images/Allure_Graphs.png">  
 </p>
 
+## <img src="images/logo/Selenoid.svg" width="25" height="25"  alt="Selenoid"/></a> *Примеры видео выполнения тестов на Selenoid*
+
+
+
+<img title="Selenoid Video" src="images/allTests.mp4" width="650" height="350"  alt="video">   

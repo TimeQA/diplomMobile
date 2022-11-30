@@ -13,7 +13,12 @@ public class LabirintAndroidSearchTests extends TestBase{
     @Test
     void searchTest() {
         step("Type search", () -> {
-            $(AppiumBy.accessibilityId("Поиск в Лабиринте")).click();
+            $(AppiumBy.id("com.android.packageinstaller:id/permission_deny_button")).click();
+            $(AppiumBy.id("ru.labirint.android.installed_feature_main:id/fragment_main_auth_skip")).click();
+            $(AppiumBy.id("ru.labirint.android.installed_feature_main:id/fragment_main_auth_skip")).click();
+            $(AppiumBy.id("ru.labirint.android.installed_feature_main:id/fragment_main_auth_skip")).click();
+
+//            $(AppiumBy.accessibilityId("Поиск в Лабиринте")).click();
             $(AppiumBy.id("ru.labirint.android:id/toolbar_search_et")).setValue("1984");
         });
 
@@ -22,6 +27,7 @@ public class LabirintAndroidSearchTests extends TestBase{
                     .shouldHave(sizeGreaterThan(0));
         });
     }
-//    ru.labirint.android.otherfeatures:id/search_hint_recycler_view
+
+//    ru.labirint.android:id/toolbar_search_et
 
 }

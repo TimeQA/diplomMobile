@@ -21,11 +21,8 @@
 <code><img width="5%" title="Junit5" src="images/logo/Junit5.svg"></code>
 <code><img width="5%" title="GitHub" src="images/logo/GitHub.svg"></code>
 <code><img width="5%" title="Allure Report" src="images/logo/Allure.svg"></code>
-<code><img width="5%" title="Allure TestOps" src="images/logo/Allure_TO.svg"></code>
-<code><img width="5%" title="RestAssured" src="images/logo/RestAssured.svg"></code>
 <code><img width="5%" title="Jenkins" src="images/logo/Jenkins.svg"></code>
-<code><img width="5%" title="Jira" src="images/logo/Java.svg"></code>
-<code><img width="5%" title="Telegram" src="images/logo/Telegram.svg"></code>
+<code><img width="5%" title="Jenkins" src="images/logo/Browserstack.svg"></code>
 </p>
 
 
@@ -46,11 +43,11 @@
 ### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; UI
 
 
->- [x] *Проверка drop-down menu*
->- [x] *Проверка наличия публикаций в разделе "СМИ о нас"*
->- [x] *Проверка заголовков основных разделов при выборе русского и анлийского языка*
->- [x] *Проверка появления окна с видео*
->- [x] *Проверка появления окна с предупреждением о необходимости заполнения обязательных полей для отправки резюме*
+>- [x] *Отказ в отслеживании локации*
+>- [x] *Проверка главной страницы"*
+>- [x] *Проверка работы работы поля для введения запроса*
+>- [x] *Проверка работы поиска по продуктам магазина*
+
 
 ____
 
@@ -63,28 +60,7 @@ ____
 
 ### *Параметры сборки в Jenkins:*
 
-- *BROWSER (браузер, по умолчанию chrome)*
-- *BROWSER_VERSION (версия браузера, по умолчанию 100.0)*
-- *BROWSER_SIZE (размер окна браузера, по умолчанию 1920x1080)*
 - *TASK (запуск любого теста отдельно)*
-
-____
-## :keyboard: *Команды для запуска из терминала*
-
-***Локальный запуск:***
-```bash  
-gradle clean t1_tests
-```
-
-***Удалённый запуск через Jenkins:***
-```bash  
-clean
-${TASK}
--Dbrowser=${BROWSER}
--DbrowserVersion=${BROWSER_VERSION}
--DbrowserSize=${BROWSER_SIZE}
-
-```
 
 ## <img src="images/logo/Allure.svg" width="25" height="25"  alt="Allure"/></a> *Allure* <a target="_blank" href="https://jenkins.autotests.cloud/job/15.Addition_to_the_cover_letter/32/allure/">*отчёт*</a>
 ___
@@ -107,37 +83,3 @@ ___
 <img title="Allure Graphics" src="images/Allure_Graphs.png">  
 </p>
 
-___
-## <img src="images/logo/Allure_TO.svg" width="25" height="25"  alt="Allure"/></a>*Интеграция с* <a target="_blank" href="https://allure.autotests.cloud/project/1430/dashboards">*Allure TestOps*</a>
-
-## *Allure TestOps Dashboard*
-
-<p align="center">  
-<img title="Allure TestOps Dashboard" src="images/Allure_Test_Ops_Dashboard.png">  
-</p>  
-
-## *Тест кейсы*
-
-<p align="center">  
-<img title="Allure TestOps Tests" src="images/Allure_TestOps_Test_Cases.png">  
-</p>
-
-___
-## <img src="images/logo/Jira.svg" width="25" height="25"  alt="Allure"/></a>*Интеграция с* <a target="_blank" href="https://jira.autotests.cloud/browse/AUTO-1175">Jira</a>
-
-<p align="center">  
-<img title="Jira" src="images/Jira.png">  
-</p>
-
-____
-## <img src="images/logo/Telegram.svg" width="25" height="25"  alt="Allure"/></a> *Уведомление в Telegram при помощи Alert bot*
-
-<p align="center">  
-<img title="Allure Overview Dashboard" src="images/Telegram_bot.png">  
-</p>
-
-## <img src="images/logo/Selenoid.svg" width="25" height="25"  alt="Selenoid"/></a> *Примеры видео выполнения тестов на Selenoid*
-
-
-
-<img title="Selenoid Video" src="images/allTests.gif" width="650" height="350"  alt="video">   

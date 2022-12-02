@@ -1,33 +1,32 @@
 package tests;
 
-import io.appium.java_client.AppiumBy;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+import tests.page.PageElements;
 
-import static com.codeborne.selenide.CollectionCondition.sizeGreaterThan;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.$$;
 import static io.qameta.allure.Allure.step;
 
 public class LabirintAndroidSearchTests extends TestBase {
+
+    PageElements pageElements = new PageElements();
 
     @DisplayName("Отказ в отслеживании локации")
     @Tag("labirint")
     @Test
     void skippedTest() {
         step("Отклонить запрос на отслеживание локации", () -> {
-            $(AppiumBy.id("com.android.packageinstaller:id/permission_deny_button")).click();
+            pageElements.selectDeny();
         });
 
         step("Пройти ознакомление", () -> {
-            $(AppiumBy.id("ru.labirint.android.installed_feature_main:id/fragment_main_auth_skip")).click();
-            $(AppiumBy.id("ru.labirint.android.installed_feature_main:id/fragment_main_auth_skip")).click();
+            pageElements.skipIntro();
+            pageElements.skipIntro();
         });
 
         //        После этого шага сделать проверку на наличие элементов на странице
         step("Пропустить авторизацию", () -> {
-            $(AppiumBy.id("ru.labirint.android.installed_feature_main:id/fragment_main_auth_skip")).click();
+            pageElements.skipIntro();
         });
     }
 
@@ -36,22 +35,20 @@ public class LabirintAndroidSearchTests extends TestBase {
     @Test
     void mainPageTest() {
         step("Отклонить запрос на отслеживание локации", () -> {
-            $(AppiumBy.id("com.android.packageinstaller:id/permission_deny_button")).click();
+            pageElements.selectDeny();
         });
 
         step("Пройти ознакомление", () -> {
-            $(AppiumBy.id("ru.labirint.android.installed_feature_main:id/fragment_main_auth_skip")).click();
-            $(AppiumBy.id("ru.labirint.android.installed_feature_main:id/fragment_main_auth_skip")).click();
+            pageElements.skipIntro();
+            pageElements.skipIntro();
         });
 
-        //        После этого шага сделать проверку на наличие элементов на странице
         step("Пропустить авторизацию", () -> {
-            $(AppiumBy.id("ru.labirint.android.installed_feature_main:id/fragment_main_auth_skip")).click();
+            pageElements.skipIntro();
         });
 
-        step("Проверить результаты поиска", () -> {
-            $$(AppiumBy.id("ru.labirint.android.otherfeatures:id/search_hint_recycler_view"))
-                    .shouldHave(sizeGreaterThan(0));
+        step("Проверить наличие элементов на странице", () -> {
+            pageElements.checkResults();
         });
     }
 
@@ -60,20 +57,20 @@ public class LabirintAndroidSearchTests extends TestBase {
     @Test
     void searchFieldTest() {
         step("Отклонить запрос на отслеживание локации", () -> {
-            $(AppiumBy.id("com.android.packageinstaller:id/permission_deny_button")).click();
+            pageElements.selectDeny();
         });
 
         step("Пройти ознакомление", () -> {
-            $(AppiumBy.id("ru.labirint.android.installed_feature_main:id/fragment_main_auth_skip")).click();
-            $(AppiumBy.id("ru.labirint.android.installed_feature_main:id/fragment_main_auth_skip")).click();
+            pageElements.skipIntro();
+            pageElements.skipIntro();
         });
 
         step("Пропустить авторизацию", () -> {
-            $(AppiumBy.id("ru.labirint.android.installed_feature_main:id/fragment_main_auth_skip")).click();
+            pageElements.skipIntro();
         });
 
         step("Кликнуть на поле поиска", () -> {
-            $(AppiumBy.id("ru.labirint.android:id/toolbar_search_et")).click();
+            pageElements.clickSearchField();
         });
     }
 
@@ -82,25 +79,24 @@ public class LabirintAndroidSearchTests extends TestBase {
     @Test
     void searchResultTest() {
         step("Отклонить запрос на отслеживание локации", () -> {
-            $(AppiumBy.id("com.android.packageinstaller:id/permission_deny_button")).click();
+            pageElements.selectDeny();
         });
 
         step("Пройти ознакомление", () -> {
-            $(AppiumBy.id("ru.labirint.android.installed_feature_main:id/fragment_main_auth_skip")).click();
-            $(AppiumBy.id("ru.labirint.android.installed_feature_main:id/fragment_main_auth_skip")).click();
+            pageElements.skipIntro();
+            pageElements.skipIntro();
         });
 
         step("Пропустить авторизацию", () -> {
-            $(AppiumBy.id("ru.labirint.android.installed_feature_main:id/fragment_main_auth_skip")).click();
+            pageElements.skipIntro();
         });
 
         step("Кликнуть на поле поиска", () -> {
-            $(AppiumBy.id("ru.labirint.android:id/toolbar_search_et")).click();
+            pageElements.clickSearchField();
         });
 
-        step("Проверить результаты поиска", () -> {
-            $$(AppiumBy.id("ru.labirint.android.otherfeatures:id/search_hint_recycler_view"))
-                    .shouldHave(sizeGreaterThan(0));
+        step("Проверить наличие элементов на странице", () -> {
+            pageElements.checkResults();
         });
     }
 

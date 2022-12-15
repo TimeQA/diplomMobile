@@ -52,9 +52,9 @@
 ____
 
 ## <img src="images/logo/Jenkins.svg" width="25" height="25"  alt="Jenkins"/></a> Jenkins job
-<a target="_blank" href="https://jenkins.autotests.cloud/job/15.Addition_to_the_cover_letter/">**Сборка в Jenkins**</a>
+<a target="_blank" href="https://jenkins.autotests.cloud/job/LabirintDiplomMobile/">**Сборка в Jenkins**</a>
 <p align="center">  
-<a href="https://jenkins.autotests.cloud/job/15.Addition_to_the_cover_letter/"><img src="images/JenkinsJob.png" alt="Jenkins"/></a>  
+<a href="https://jenkins.autotests.cloud/job/LabirintDiplomMobile/"><img src="images/JenkinsJob.png" alt="Jenkins"/></a>  
 </p>
 
 
@@ -62,7 +62,7 @@ ____
 
 - *TASK (запуск любого теста отдельно)*
 
-## <img src="images/logo/Allure.svg" width="25" height="25"  alt="Allure"/></a> *Allure* <a target="_blank" href="https://jenkins.autotests.cloud/job/15.Addition_to_the_cover_letter/32/allure/">*отчёт*</a>
+## <img src="images/logo/Allure.svg" width="25" height="25"  alt="Allure"/></a> *Allure* <a target="_blank" href="https://jenkins.autotests.cloud/job/LabirintDiplomMobile/allure/">*отчёт*</a>
 ___
 
 ### *Основная страница отчёта*

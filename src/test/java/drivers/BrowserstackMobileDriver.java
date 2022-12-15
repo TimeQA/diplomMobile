@@ -1,43 +1,69 @@
 package drivers;
 
+import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.WebDriverProvider;
-import lombok.SneakyThrows;
+import config.MobileConfig;
+import org.aeonbits.owner.ConfigFactory;
 import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.MutableCapabilities;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
+import javax.annotation.Nonnull;
+import java.io.File;
+import java.net.MalformedURLException;
 import java.net.URL;
+
+import static io.restassured.RestAssured.given;
+import static java.lang.String.format;
+import static org.hamcrest.Matchers.is;
+import static org.hamcrest.Matchers.notNullValue;
 
 public class BrowserstackMobileDriver implements WebDriverProvider {
 
-    @SneakyThrows
+    private static final String APK_UPLOAD_ENDPOINT = "https://%s:%s@api-cloud.browserstack.com/app-automate/upload";
+    private static final String APK_PATH = "src/test/resources/apk.apk";
+
+    private final MobileConfig mobileConfig = ConfigFactory.create(MobileConfig.class, System.getProperties());
+
     @Override
-    public WebDriver createDriver(Capabilities capabilities) {
+    @Nonnull
+    public final WebDriver createDriver(final @Nonnull Capabilities capabilities) {
+
+        Configuration.browserSize = null;
 
         MutableCapabilities mutableCapabilities = new MutableCapabilities();
+
         mutableCapabilities.merge(capabilities);
-
-        // Set your access credentials
-        mutableCapabilities.setCapability("browserstack.user", "bsuser_vKQihl");
-        mutableCapabilities.setCapability("browserstack.key", "pGkcaMqBQqwL1iCvPpbx");
-
-        // Set URL of the application under test
-        mutableCapabilities.setCapability("app", "bs://f46608a0fb18e336d5274dd76ff17f8c8922b59e");
-
-        // Specify device and os_version for testing
-        mutableCapabilities.setCapability("device", "Google Pixel 3");
-        mutableCapabilities.setCapability("os_version", "9.0");
-
-        // Set other BrowserStack capabilities
-        mutableCapabilities.setCapability("project", "First Java Project");
-        mutableCapabilities.setCapability("build", "browserstack-build-1");
-        mutableCapabilities.setCapability("name", "first_test");
-
-
-        // Initialise the remote Webdriver using BrowserStack remote URL
-        // and desired capabilities defined above
-        return new RemoteWebDriver(new URL("http://hub.browserstack.com/wd/hub"), mutableCapabilities);
-
+        mutableCapabilities.setCapability("browserstack.user", mobileConfig.browserstackUser());
+        mutableCapabilities.setCapability("browserstack.key", mobileConfig.browserstackKey());
+        mutableCapabilities.setCapability("appUrl", uploadAPK());
+        mutableCapabilities.setCapability("device", mobileConfig.device());
+        mutableCapabilities.setCapability("os_version", mobileConfig.osVersion());
+        mutableCapabilities.setCapability("project", mobileConfig.project());
+        mutableCapabilities.setCapability("build", mobileConfig.build());
+        mutableCapabilities.setCapability("name", mobileConfig.name());
+        return new RemoteWebDriver(getBrowserstackUrl(), mutableCapabilities);
     }
+
+    public final URL getBrowserstackUrl() {
+        try {
+            return new URL(mobileConfig.remoteUrl());
+        } catch (MalformedURLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Nonnull
+    private String uploadAPK() {
+        return given()
+                .multiPart("file", new File(APK_PATH))
+                .when()
+                .post(format(APK_UPLOAD_ENDPOINT, mobileConfig.browserstackUser(), mobileConfig.browserstackKey()))
+                .then()
+                .statusCode(200)
+                .body("app_url", is(notNullValue()))
+                .extract().path("app_url").toString();
+    }
+
 }

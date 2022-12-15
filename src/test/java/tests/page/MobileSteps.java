@@ -8,7 +8,7 @@ import static com.codeborne.selenide.CollectionCondition.sizeGreaterThan;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
 
-public class PageElements {
+public class MobileSteps {
 
     private final SelenideElement
             deny = $(AppiumBy.id("com.android.packageinstaller:id/permission_deny_button")),
@@ -20,26 +20,26 @@ public class PageElements {
 
 
 
-    public final PageElements selectDeny() {
+    public final MobileSteps selectDeny() {
         deny.click();
 
         return this;
     }
 
-    public final PageElements skipIntro() {
+    public final MobileSteps skipIntro() {
         nextIntro.click();
 
         return this;
     }
 
-    public final PageElements clickSearchField() {
+    public final MobileSteps clickSearchField() {
         searchField.click();
 
         return this;
     }
 
 
-    public final PageElements checkResults() {
+    public final MobileSteps checkResults() {
         searchResults.shouldHave(sizeGreaterThan(0));
 
         return this;
